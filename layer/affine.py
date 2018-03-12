@@ -1,4 +1,6 @@
-# Author(s): Calvin Feng, 2018
+# Created: March, 2018
+# Author(s): Calvin Feng
+
 import numpy as np
 
 

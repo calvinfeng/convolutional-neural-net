@@ -1,3 +1,6 @@
+# Created: March, 2018
+# Author(s): Calvin Feng
+
 from layer.affine import Affine
 from layer.gradient_check import *
 import numpy as np
