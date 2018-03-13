@@ -1,8 +1,8 @@
 # Created: March, 2018
 # Author(s): Calvin Feng
 
-from conv_net.layer.batch_norm import BatchNorm
-from conv_net.gradient_check import *
+from layer.batch_norm import BatchNorm
+from layer.gradient_check import *
 import numpy as np
 import unittest
 
