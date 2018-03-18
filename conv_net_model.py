@@ -8,6 +8,7 @@ from composite.gradient_check import eval_numerical_gradient, rel_error
 import data_utils
 import numpy as np
 import time
+from data_utils import get_preprocessed_CIFAR10
 
 
 class ConvNetModel(object):
@@ -144,3 +145,24 @@ class ConvNetModel(object):
         grad_x /= N
 
         return loss, grad_x
+
+
+if __name__ == '__main__':
+    # Let's get some data in first
+    feed_dict = get_preprocessed_CIFAR10('datasets/cifar-10-batches-py')
+
+    for key, value in feed_dict.iteritems():
+        print "%s has shape: %s" % (key, value.shape)
+
+    # Define the model
+    model = ConvNetModel()
+    t0 = time.time()
+    solver = Solver(model,
+                    feed_dict,
+                    update_rule='sgd_momentum',
+                    num_epochs=4,
+                    batch_size=100,
+                    optim_config={'learning_rate': 1e-3},
+                    verbose=True)
+    solver.train()
+    tf = time.time()
