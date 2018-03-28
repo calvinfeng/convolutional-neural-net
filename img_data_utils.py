@@ -14,7 +14,7 @@ def load_jpg_from_dir(dir, resize_px=32, num_images_per_class=12500, start_idx=1
     while i < start_idx + num_images_per_class:
         try:
             image_name = "cat.%d.jpg" % i
-            image = np.array(ndimage.imread(dir + image_name, flatten=False))
+            image = np.array(ndimage.imread(dir + image_name, flatten=False), dtype='uint8')
             resized_image = scipy.misc.imresize(image, size=(resize_px, resize_px))
             img_set.append(resized_image)
             labels.append(1)
